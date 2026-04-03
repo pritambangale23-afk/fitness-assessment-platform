@@ -318,7 +318,7 @@ export function getWeakestSection(answers: Record<number, boolean>): Section {
 export function getLowSections(answers: Record<number, boolean>): Section[] {
   const sections: Section[] = ["nutrition", "recovery", "mental"];
   return sections
-    .filter((s) => getSectionScore(answers, s) < getSectionMax(s))
+    .filter((s) => getSectionScore(answers, s) <= Math.floor(getSectionMax(s) / 2))
     .sort(
       (a, b) =>
         getSectionScore(answers, a) / getSectionMax(a) -

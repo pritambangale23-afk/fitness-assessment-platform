@@ -298,7 +298,7 @@ export default function ResultPage({ answers, onRetake }: ResultPageProps) {
                 const pct = (score / max) * 100;
                 const info = sectionInfo[section];
                 const isStrongest = section === strongest;
-                const isLow = score < max;
+                const isLow = score <= Math.floor(max / 2);
 
                 return (
                   <div key={section}>
@@ -338,40 +338,56 @@ export default function ResultPage({ answers, onRetake }: ResultPageProps) {
       </div>
 
       {/* ── ACTION PLAN ────────────────────────────────── */}
-      {hasLowSections && (
-        <div className="px-5 sm:px-8 max-w-2xl mx-auto">
-          {/* Section divider */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-3 mb-8"
-          >
-            <div className="h-px flex-1 bg-white/8" />
-            <div className="glass px-4 py-2 rounded-full">
-              <p className="text-lime-400 text-[10px] font-black tracking-[0.3em] uppercase">
-                Your Action Plan
-              </p>
-            </div>
-            <div className="h-px flex-1 bg-white/8" />
-          </motion.div>
+      <div className="px-5 sm:px-8 max-w-2xl mx-auto">
+        {/* Section divider */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="flex items-center gap-3 mb-8"
+        >
+          <div className="h-px flex-1 bg-white/8" />
+          <div className="glass px-4 py-2 rounded-full">
+            <p className="text-lime-400 text-[10px] font-black tracking-[0.3em] uppercase">
+              {hasLowSections ? "Your Action Plan" : "You're On Track"}
+            </p>
+          </div>
+          <div className="h-px flex-1 bg-white/8" />
+        </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
+        {hasLowSections ? (
+          <>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-white/50 text-sm text-center mb-8 leading-relaxed"
+            >
+              Based on your score, here are the exact rules to fix{" "}
+              {lowSections.length === 1 ? "your weak section" : "your weak sections"}.
+              <br />
+              <span className="text-lime-400/80">Tap each rule to expand the full protocol.</span>
+            </motion.p>
+
+            {lowSections.map((section, i) => (
+              <SectionMeasuresBlock key={section} section={section} index={i} />
+            ))}
+          </>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-white/50 text-sm text-center mb-8 leading-relaxed"
+            className="glass-card rounded-2xl p-6 text-center border border-lime-500/15 bg-gradient-to-br from-lime-900/10 to-transparent mb-8"
           >
-            Based on your results, here are the exact rules to fix your weakest areas.
-            <br />
-            <span className="text-lime-400/80">Tap each rule to expand the full protocol.</span>
-          </motion.p>
-
-          {lowSections.map((section, i) => (
-            <SectionMeasuresBlock key={section} section={section} index={i} />
-          ))}
-        </div>
-      )}
+            <span className="text-4xl block mb-3">🏆</span>
+            <p className="text-lime-400 font-black text-lg mb-2">No Critical Gaps Detected</p>
+            <p className="text-white/55 text-sm leading-relaxed">
+              You scored above 50% in all three sections — solid foundation across the board. A personalized protocol will push you to the next level.
+            </p>
+          </motion.div>
+        )}
+      </div>
 
       {/* ── PERSONALIZED PLAN CTA ──────────────────────── */}
       <div className="px-5 sm:px-8 max-w-2xl mx-auto pb-16">
