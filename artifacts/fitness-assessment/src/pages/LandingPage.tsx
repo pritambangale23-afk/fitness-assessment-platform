@@ -13,7 +13,8 @@ const cardData = [
     border: "border-lime-500/20",
     glow: "rgba(163,230,53,0.08)",
     gradient: "from-lime-900/50 to-green-900/30",
-    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=500&q=85&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=500&q=85&auto=format&fit=crop",
     stat: "4 Rules",
   },
   {
@@ -24,7 +25,8 @@ const cardData = [
     border: "border-teal-500/20",
     glow: "rgba(45,212,191,0.08)",
     gradient: "from-teal-900/50 to-cyan-900/30",
-    image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=500&q=85&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=500&q=85&auto=format&fit=crop",
     stat: "4 Rules",
   },
   {
@@ -35,7 +37,8 @@ const cardData = [
     border: "border-violet-500/20",
     glow: "rgba(167,139,250,0.08)",
     gradient: "from-violet-900/50 to-purple-900/30",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500&q=85&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500&q=85&auto=format&fit=crop",
     stat: "4 Rules",
   },
 ];
@@ -44,7 +47,7 @@ const statsData = [
   { value: "500+", label: "Athletes Coached" },
   { value: "12", label: "Questions" },
   { value: "3", label: "Core Pillars" },
-  { value: "< 3min", label: "To Complete" },
+  { value: "< 1min", label: "To Complete" },
 ];
 
 const staggerChildren = {
@@ -53,13 +56,16 @@ const staggerChildren = {
 
 const fadeUp = {
   initial: { opacity: 0, y: 28 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] } },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
 };
 
 export default function LandingPage({ onStart }: LandingPageProps) {
   return (
     <div className="min-h-screen bg-[#040e07] overflow-x-hidden">
-
       {/* ── HERO ────────────────────────────────────────── */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background */}
@@ -84,8 +90,12 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             transition={{ duration: 0.55 }}
             className="glass px-4 py-2.5 rounded-xl"
           >
-            <p className="text-[9px] text-lime-400/65 font-black tracking-[0.2em] uppercase">Coach</p>
-            <p className="text-white font-black text-sm sm:text-base tracking-wide whitespace-nowrap">YASHRAJ GHODKE</p>
+            <p className="text-[9px] text-lime-400/65 font-black tracking-[0.2em] uppercase">
+              Coach
+            </p>
+            <p className="text-white font-black text-sm sm:text-base tracking-wide whitespace-nowrap">
+              YASHRAJ GHODKE
+            </p>
           </motion.div>
 
           <motion.div
@@ -95,12 +105,15 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             className="glass px-4 py-2.5 rounded-xl flex items-center gap-2"
           >
             <span className="w-2 h-2 rounded-full bg-lime-400 animate-pulse" />
-            <p className="text-lime-400 font-black text-sm tracking-[0.2em] uppercase">Certified</p>
+            <p className="text-lime-400 font-black text-sm tracking-[0.2em] uppercase">
+              Certified
+            </p>
           </motion.div>
         </div>
 
         {/* Main content */}
-        <div className="relative z-10 flex-1 flex flex-col justify-end pb-14 px-5 sm:px-8 max-w-3xl mx-auto w-full">
+        {/* ✅ CHANGED: wrapper padding + max-width */}
+        <div className="relative z-10 flex-1 flex flex-col justify-end pb-8 px-4 sm:px-8 lg:px-12 max-w-2xl lg:max-w-4xl mx-auto w-full">
           <motion.div
             variants={staggerChildren}
             initial="initial"
@@ -110,28 +123,33 @@ export default function LandingPage({ onStart }: LandingPageProps) {
               variants={fadeUp}
               className="text-lime-400/75 text-[10px] sm:text-sm font-black tracking-[0.15em] uppercase mb-4"
             >
-              Performance System · Est. 2024
+              Performance System
             </motion.p>
 
             <motion.div variants={fadeUp}>
-              <h1 className="text-[3.4rem] sm:text-[5.5rem] lg:text-[7rem] font-black leading-[0.88] tracking-[-0.025em] text-white">
-                PERFOR<br />MANCE
+              {/* ✅ CHANGED: hero text sizes */}
+              <h1 className="text-[2rem] sm:text-[3.5rem] lg:text-[5.5rem] xl:text-[7rem] font-black leading-[0.88] tracking-[-0.025em] text-white">
+                PERFORMANCE
               </h1>
-              <h1 className="text-[3.4rem] sm:text-[5.5rem] lg:text-[7rem] font-black leading-[0.88] tracking-[-0.025em] text-lime-400 text-lime-glow mb-7">
+              <h1 className="text-[2rem] sm:text-[3.5rem] lg:text-[5.5rem] xl:text-[7rem] font-black leading-[0.88] tracking-[-0.025em] text-lime-400 text-lime-glow mb-7">
                 PROTOCOL
               </h1>
             </motion.div>
 
+            {/* ✅ CHANGED: subtitle text size */}
             <motion.p
               variants={fadeUp}
-              className="text-white/70 text-base sm:text-lg font-light max-w-sm leading-relaxed mb-3"
+              className="text-white/70 text-sm sm:text-base lg:text-lg font-light max-w-sm leading-relaxed mb-3"
             >
               Personalized assessment &amp; coaching system
             </motion.p>
 
-            <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
+            <motion.div
+              variants={fadeUp}
+              className="flex items-center gap-3 mb-8"
+            >
               <div className="flex -space-x-2">
-                {["Y","R","A","K"].map((l) => (
+                {["Y", "R", "A", "K"].map((l) => (
                   <div
                     key={l}
                     className="w-8 h-8 rounded-full bg-gradient-to-br from-lime-400 to-green-600 flex items-center justify-center text-[11px] font-black text-black border-2 border-[#040e07]"
@@ -144,7 +162,8 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 </div>
               </div>
               <p className="text-white/55 text-sm">
-                <span className="text-lime-400 font-black">500+</span> Athletes Trained
+                <span className="text-lime-400 font-black">500+</span> Athletes
+                Trained
               </p>
             </motion.div>
 
@@ -156,13 +175,24 @@ export default function LandingPage({ onStart }: LandingPageProps) {
               className="btn-lime w-full sm:w-auto px-8 py-5 rounded-2xl text-sm sm:text-lg pulse-lime flex items-center justify-center gap-2"
             >
               START YOUR ASSESSMENT
-              <svg className="flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <svg
+                className="flex-shrink-0"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+              >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </motion.button>
 
-            <motion.p variants={fadeUp} className="text-white/30 text-xs mt-3 text-center sm:text-left">
-              12 questions · under 3 minutes · free
+            <motion.p
+              variants={fadeUp}
+              className="text-white/30 text-xs mt-3 text-center sm:text-left"
+            >
+              12 questions · under 1 minute · free
             </motion.p>
           </motion.div>
         </div>
@@ -180,8 +210,12 @@ export default function LandingPage({ onStart }: LandingPageProps) {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="text-center"
             >
-              <p className="text-lime-400 font-black text-2xl sm:text-3xl text-lime-glow">{stat.value}</p>
-              <p className="text-white/40 text-xs font-semibold tracking-wide mt-0.5">{stat.label}</p>
+              <p className="text-lime-400 font-black text-2xl sm:text-3xl text-lime-glow">
+                {stat.value}
+              </p>
+              <p className="text-white/40 text-xs font-semibold tracking-wide mt-0.5">
+                {stat.label}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -201,10 +235,13 @@ export default function LandingPage({ onStart }: LandingPageProps) {
           </p>
           <h2 className="text-white text-3xl sm:text-4xl font-black leading-tight">
             3 Pillars of{" "}
-            <span className="text-lime-400 text-lime-glow">Elite Performance</span>
+            <span className="text-lime-400 text-lime-glow">
+              Elite Performance
+            </span>
           </h2>
           <p className="text-white/40 text-sm mt-3 max-w-md mx-auto">
-            We assess you across three core domains. You'll get a score, a breakdown, and exact rules to fix your weakest areas.
+            We assess you across three core domains. You'll get a score, a
+            breakdown, and exact rules to fix your weakest areas.
           </p>
         </motion.div>
 
@@ -227,16 +264,24 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />
-                <div className={`absolute inset-0 bg-gradient-to-t ${card.gradient}`} />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t ${card.gradient}`}
+                />
                 <div className="absolute top-3 right-3 glass px-2.5 py-1 rounded-lg">
-                  <p className="text-white/70 text-[10px] font-black tracking-wide">{card.stat}</p>
+                  <p className="text-white/70 text-[10px] font-black tracking-wide">
+                    {card.stat}
+                  </p>
                 </div>
               </div>
 
               <div className="p-5">
                 <span className="text-3xl">{card.emoji}</span>
-                <h3 className="text-white font-black text-xl mt-2 mb-1">{card.title}</h3>
-                <p className="text-white/45 text-sm leading-relaxed">{card.subtitle}</p>
+                <h3 className="text-white font-black text-xl mt-2 mb-1">
+                  {card.title}
+                </h3>
+                <p className="text-white/45 text-sm leading-relaxed">
+                  {card.subtitle}
+                </p>
               </div>
             </motion.div>
           ))}
@@ -255,15 +300,29 @@ export default function LandingPage({ onStart }: LandingPageProps) {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { icon: "📊", title: "Your Score", desc: "Scored out of 12 with % and performance label" },
-              { icon: "🎯", title: "Action Plan", desc: "Exact rules to fix each low-scoring section" },
-              { icon: "📋", title: "Personalized Path", desc: "Option to get a custom protocol built for you" },
+              {
+                icon: "📊",
+                title: "Your Score",
+                desc: "Scored out of 12 with % and performance label",
+              },
+              {
+                icon: "🎯",
+                title: "Action Plan",
+                desc: "Exact rules to fix each low-scoring section",
+              },
+              {
+                icon: "📋",
+                title: "Personalized Path",
+                desc: "Option to get a custom protocol built for you",
+              },
             ].map((item) => (
               <div key={item.title} className="flex items-start gap-3">
                 <span className="text-2xl flex-shrink-0">{item.icon}</span>
                 <div>
                   <p className="text-white font-black text-sm">{item.title}</p>
-                  <p className="text-white/40 text-xs leading-relaxed mt-0.5">{item.desc}</p>
+                  <p className="text-white/40 text-xs leading-relaxed mt-0.5">
+                    {item.desc}
+                  </p>
                 </div>
               </div>
             ))}
@@ -286,7 +345,9 @@ export default function LandingPage({ onStart }: LandingPageProps) {
           >
             START ASSESSMENT NOW
           </motion.button>
-          <p className="text-white/25 text-xs mt-3">Free · No sign-up required</p>
+          <p className="text-white/25 text-xs mt-3">
+            Free · No sign-up required
+          </p>
         </motion.div>
       </section>
     </div>
