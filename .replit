@@ -2,7 +2,6 @@ modules = ["nodejs-24"]
 
 [[artifacts]]
 id = "artifacts/api-server"
-
 [[artifacts]]
 id = "artifacts/mockup-sandbox"
 
@@ -24,19 +23,41 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "Start application"
+args = "Frontend"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Backend"
 
 [[workflows.workflow]]
-name = "Start application"
+name = "Frontend"
+mode = "sequential"
 author = "agent"
 
 [workflows.workflow.metadata]
 outputType = "webview"
+webviewPort = 3001
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "PORT=21317 BASE_PATH=/ pnpm --filter @workspace/fitness-assessment run dev"
-waitForPort = 21317
+args = "fuser -k 3001/tcp 2>/dev/null; true"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "pnpm --filter @workspace/fitness-assessment run dev"
+
+[[workflows.workflow]]
+name = "Backend"
+mode = "sequential"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "fuser -k 8080/tcp 2>/dev/null; true"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "PORT=8080 pnpm --filter @workspace/api-server run dev"
 
 [agent]
 stack = "PNPM_WORKSPACE"
@@ -45,3 +66,6 @@ expertMode = true
 [postMerge]
 path = "scripts/post-merge.sh"
 timeoutMs = 20000
+
+[nix]
+packages = ["psmisc"]

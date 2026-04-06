@@ -1,0 +1,93 @@
+ONLY update the Recovery remedies content inside the existing result page action-plan accordion.
+
+⚠️ IMPORTANT:
+
+- Do NOT redesign UI
+- Do NOT touch layout
+- Do NOT change animations
+- Do NOT modify scoring logic
+- Do NOT touch Nutrition or Mental section
+- Do NOT change any other files
+- ONLY replace the existing 4 Recovery rules text/content
+- Keep the same existing accordion cards and styling
+
+Replace ONLY these 4 recovery rules with the following:
+
+RULE 1
+Title: RECOVERY WINDOW RULE
+Short text: Be asleep by 9:30–10:00 PM
+
+Expanded content:
+Your body has a fixed recovery window every night.
+
+⚙️ RULE:
+Be asleep by 9:30–10:00 PM
+
+🔥 SIMPLE EXECUTION:
+Fix a sleep time
+Start winding down 20 mins before
+
+💥 WHY THIS WORKS:
+Most deep recovery happens early in the night.
+Between 10 PM–2 AM your body recovers the most.
+Miss this → poor recovery the next day.
+
+RULE 2
+Title: ENERGY CONSERVATION RULE
+Short text: Avoid unnecessary energy drains during the day
+
+Expanded content:
+Recovery is not just about sleep.
+It is also about how much energy you waste during the day.
+
+⚙️ RULE:
+Avoid unnecessary energy drains during the day
+
+🔥 SIMPLE EXECUTION:
+Don’t scroll randomly for long periods
+Avoid toxic content
+Avoid unnecessary talking / overthinking
+Take short breaks instead of pushing non-stop
+
+💥 WHY THIS WORKS:
+Your body has limited energy.
+If you waste it → nothing is left for recovery and performance.
+
+RULE 3
+Title: CAFFEINE CUT-OFF RULE
+Short text: No caffeine after 4 PM
+
+Expanded content:
+Your recovery starts from what you consume.
+
+⚙️ RULE:
+No caffeine after 4 PM
+
+🔥 SIMPLE EXECUTION:
+No tea / coffee in evening
+Drink water or light fluids
+
+💥 WHY THIS WORKS:
+Caffeine blocks your natural sleep drive,
+reduces recovery quality,
+and increases heart rate.
+
+RULE 4
+Title: LAST MEAL RECOVERY RULE
+Short text: Finish dinner 2–3 hours before sleep
+
+Expanded content:
+Your last meal decides your recovery quality.
+
+⚙️ RULE:
+Finish dinner 2–3 hours before sleep
+
+🔥 SIMPLE EXECUTION:
+Eat early dinner
+Avoid heavy, oily food at night
+
+💥 WHY THIS WORKS:
+If your body is digesting, it cannot fully recover.
+Better digestion = deeper recovery.
+
+Make NO other changes.
